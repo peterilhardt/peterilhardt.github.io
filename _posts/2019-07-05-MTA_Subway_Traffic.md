@@ -92,13 +92,13 @@ Next, I wanted to discern how time of day factored into the traffic picture. Not
 
 ![traffic_by_time]({{ site.url }}/images/Traffic_by_Time.png)
 
-![penn_station_entry_exit](peterilhardt.github.io/images/Penn_Station_Entry_Exit.png)
+![penn_station_entry_exit]({{ site.url }}/Penn_Station_Entry_Exit.png)
 
 This entry-exit disparity also manifested in bivariate analyses of the two variables. Shown below are scatterplots of exit vs. entry traffic summed over each day and then in raw form (reported every 4 hours). It is clear that in looking at each day in the aggregate, entry traffic is highly correlated with exit traffic since stations that are busy in the morning will likely also be busy in the evening. When broken down into time intervals, however, we see different slopes corresponding to different times of day. This is further evidence of an entry-exit lag in daily foot traffic. 
 
-![entry_vs_exit_scatter](peterilhardt.github.io/images/Enter_vs_Exit_Scatter.png)
+![entry_vs_exit_scatter]({{ site.url }}/images/Enter_vs_Exit_Scatter.png)
 
-![entry_vs_exit_time_scatter](peterilhardt.github.io/images/Enter_vs_Exit_Time_Scatter.png)
+![entry_vs_exit_time_scatter]({{ site.url }}/images/Enter_vs_Exit_Time_Scatter.png)
 
 Finally, I wanted to incorporate location data to visualize peak foot traffic in geographical space. For this I used the *folium* module and imported station location data from the MTA public repository (data [here](http://web.mta.info/developers/data/nyct/subway/Stations.csv)). This file has the latitude and longitude coordinates for each station. I imported the data, cleaned it (including renaming some of the busiest stations due to name discrepancies between files), and merged it with the turnstile files using the following script:
 
@@ -161,7 +161,7 @@ for index, row in mta_join[(mta_join.DATE=='2019-06-13') &
 m.save('station_map.html')
 ```
 
-![station_map](peterilhardt.github.io/images/station_map.png)
+![station_map]({{ site.url }}/images/station_map.png)
 
 This confirmed that subway foot traffic is concentrated (almost exclusively) in downtown Manhattan, with some appearing in the Bay Ridge area. As such, it was safe to recommend Manhattan as the optimal target site for both gala recruitment and gala hosting. 
 
