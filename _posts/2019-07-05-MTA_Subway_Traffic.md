@@ -92,7 +92,7 @@ Next, I wanted to discern how time of day factored into the traffic picture. Not
 
 ![traffic_by_time]({{ site.url }}/images/Traffic_by_Time.png)
 
-![penn_station_entry_exit]({{ site.url }}/Penn_Station_Entry_Exit.png)
+![penn_station_entry_exit]({{ site.url }}/images/Penn_Station_Entry_Exit.png)
 
 This entry-exit disparity also manifested in bivariate analyses of the two variables. Shown below are scatterplots of exit vs. entry traffic summed over each day and then in raw form (reported every 4 hours). It is clear that in looking at each day in the aggregate, entry traffic is highly correlated with exit traffic since stations that are busy in the morning will likely also be busy in the evening. When broken down into time intervals, however, we see different slopes corresponding to different times of day. This is further evidence of an entry-exit lag in daily foot traffic. 
 
