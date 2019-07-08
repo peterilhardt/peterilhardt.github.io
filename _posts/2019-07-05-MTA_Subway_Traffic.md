@@ -68,17 +68,17 @@ With the data cleaned and prepared, I was ready to do some exploratory analysis.
 
 Some of the more predictable aspects of MTA pedestrian traffic quickly became clear. Weekdays were by far busier than weekends, with peak traffic generally occurring around the middle of the week. The following plots summarize this trend well:
 
-![weekday_boxplot](peterilhardt.github.io/images/Weekday_Boxplot.png)
+![weekday_boxplot]({{ site.url }}/images/Weekday_Boxplot.png)
 
-![daily_traffic_stations](peterilhardt.github.io/images/Daily_Traffic_Stations.png)
+![daily_traffic_stations]({{ site.url }}/images/Daily_Traffic_Stations.png)
 
 It was also clear that some stations were far busier than others. In fact, it seemed the bulk of the foot traffic in NYC was largely concentrated at approximately 10 stations. The distribution of total traffic by station was thus highly right-skewed, shown here on a log scale:
 
-![hist_log_total_traffic](peterilhardt.github.io/images/Hist_log_Total_Traffic.png)
+![hist_log_total_traffic]({{ site.url }}/images/Hist_log_Total_Traffic.png)
 
 The busiest stations themselves were not particularly surprising, topped by some of the more well-known NYC stations: Penn Station, Grand Central Station, Herald Square, Union Square, and Times Square:
 
-![bar_busiest_stations](peterilhardt.github.io/images/Bar_Busiest_Stations_2.png)
+![bar_busiest_stations]({{ site.url }}/images/Bar_Busiest_Stations_2.png)
 
 To produce a list of these busiest stations, I used the following procedure:
 
@@ -90,7 +90,7 @@ top_stations = station_total.iloc[:9,:].STATION.tolist()
 
 Next, I wanted to discern how time of day factored into the traffic picture. Not surprisingly, traffic appeared to peak around midday and tail off at night, but interestingly, peak entry traffic (people going into the station) was somewhat offset from peak exit traffic. Exits generally appeared to peak around noon, whereas entries peaked somewhat later (end of the business day). While it would likely be irrelevant to a street team whether a passerby is entering or exiting the station, it *would* likely affect whether that person would stop to talk to a marketer. The two plots below show the typical traffic trends for select busy stations over the course of a day as well as the corresponding entry and exit trends for a day at Penn Station:
 
-![traffic_by_time](peterilhardt.github.io/images/Traffic_by_Time.png)
+![traffic_by_time]({{ site.url }}/images/Traffic_by_Time.png)
 
 ![penn_station_entry_exit](peterilhardt.github.io/images/Penn_Station_Entry_Exit.png)
 
