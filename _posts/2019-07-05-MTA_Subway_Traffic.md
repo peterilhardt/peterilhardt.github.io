@@ -68,17 +68,17 @@ With the data cleaned and prepared, I was ready to do some exploratory analysis.
 
 Some of the more predictable aspects of MTA pedestrian traffic quickly became clear. Weekdays were by far busier than weekends, with peak traffic generally occurring around the middle of the week. The following plots summarize this trend well:
 
-![weekday_boxplot](https://github.com/peterilhardt/peterilhardt.github.io/tree/master/images/Weekday_Boxplot.png)
+![weekday_boxplot](images/Weekday_Boxplot.png)
 
-![daily_traffic_stations](https://github.com/peterilhardt/peterilhardt.github.io/tree/master/images/Daily_Traffic_Stations.png)
+![daily_traffic_stations](images/Daily_Traffic_Stations.png)
 
 It was also clear that some stations were far busier than others. In fact, it seemed the bulk of the foot traffic in NYC was largely concentrated at approximately 10 stations. The distribution of total traffic by station was thus highly right-skewed, shown here on a log scale:
 
-![hist_log_total_traffic](https://github.com/peterilhardt/peterilhardt.github.io/tree/master/images/Hist_log_Total_Traffic.png)
+![hist_log_total_traffic](images/Hist_log_Total_Traffic.png)
 
 The busiest stations themselves were not particularly surprising, topped by some of the more well-known NYC stations: Penn Station, Grand Central Station, Herald Square, Union Square, and Times Square:
 
-![bar_busiest_stations](https://github.com/peterilhardt/peterilhardt.github.io/tree/master/images/Bar_Busiest_Stations_2.png)
+![bar_busiest_stations](images/Bar_Busiest_Stations_2.png)
 
 To produce a list of these busiest stations, I used the following procedure:
 
@@ -90,15 +90,15 @@ top_stations = station_total.iloc[:9,:].STATION.tolist()
 
 Next, I wanted to discern how time of day factored into the traffic picture. Not surprisingly, traffic appeared to peak around midday and tail off at night, but interestingly, peak entry traffic (people going into the station) was somewhat offset from peak exit traffic. Exits generally appeared to peak around noon, whereas entries peaked somewhat later (end of the business day). While it would likely be irrelevant to a street team whether a passerby is entering or exiting the station, it *would* likely affect whether that person would stop to talk to a marketer. The two plots below show the typical traffic trends for select busy stations over the course of a day as well as the corresponding entry and exit trends for a day at Penn Station:
 
-![traffic_by_time](https://github.com/peterilhardt/peterilhardt.github.io/blob/master/images/Traffic_by_Time.png)
+![traffic_by_time](images/Traffic_by_Time.png)
 
-![penn_station_entry_exit](https://github.com/peterilhardt/peterilhardt.github.io/blob/master/images/Penn_Station_Entry_Exit.png)
+![penn_station_entry_exit](images/Penn_Station_Entry_Exit.png)
 
 This entry-exit disparity also manifested in bivariate analyses of the two variables. Shown below are scatterplots of exit vs. entry traffic summed over each day and then in raw form (reported every 4 hours). It is clear that in looking at each day in the aggregate, entry traffic is highly correlated with exit traffic since stations that are busy in the morning will likely also be busy in the evening. When broken down into time intervals, however, we see different slopes corresponding to different times of day. This is further evidence of an entry-exit lag in daily foot traffic. 
 
-![entry_vs_exit_scatter](https://github.com/peterilhardt/peterilhardt.github.io/blob/master/images/Enter_vs_Exit_Scatter.png)
+![entry_vs_exit_scatter](images/Enter_vs_Exit_Scatter.png)
 
-![entry_vs_exit_time_scatter](https://github.com/peterilhardt/peterilhardt.github.io/blob/master/images/Enter_vs_Exit_Time_Scatter.png)
+![entry_vs_exit_time_scatter](images/Enter_vs_Exit_Time_Scatter.png)
 
 Finally, I wanted to incorporate location data to visualize peak foot traffic in geographical space. For this I used the *folium* module and imported station location data from the MTA public repository (data [here](http://web.mta.info/developers/data/nyct/subway/Stations.csv)). This file has the latitude and longitude coordinates for each station. I imported the data, cleaned it (including renaming some of the busiest stations due to name discrepancies between files), and merged it with the turnstile files using the following script:
 
@@ -161,7 +161,7 @@ for index, row in mta_join[(mta_join.DATE=='2019-06-13') &
 m.save('station_map.html')
 ```
 
-![station_map](https://github.com/peterilhardt/peterilhardt.github.io/blob/master/images/station_map.png)
+![station_map](images/station_map.png)
 
 This confirmed that subway foot traffic is concentrated (almost exclusively) in downtown Manhattan, with some appearing in the Bay Ridge area. As such, it was safe to recommend Manhattan as the optimal target site for both gala recruitment and gala hosting. 
 
