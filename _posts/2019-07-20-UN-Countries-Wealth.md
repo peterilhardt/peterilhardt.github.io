@@ -90,14 +90,14 @@ After merging this data with the UN dataframe, I was ready to begin the cleaning
 
 After this, I was still left with quite a few NaN's in the data that I needed to impute. I decided to take a two-step approach for this:
 
-1. For countries/fields with only one or two missing values (i.e. missing data for one or two years but at least one year present), I filled the missing entries with the mean value of that country/field for the other years:
+* For countries/fields with only one or two missing values (i.e. missing data for one or two years but at least one year present), I filled the missing entries with the mean value of that country/field for the other years:
 
 ```python
 for col in UN.columns[2:]:
     UN[col] = UN.groupby('Country')[col].transform(lambda x: x.fillna(x.mean()))
 ```
 
-2. For countries/fields with all three values missing (i.e. all three years), I implemented kNN imputation using the `KNN` function from the *fancyimpute* module. I decided this was more appropriate than a linear imputation approach since countries that share similar characteristics are more likely to have values for a missing field that closely resemble the actual missing values. I selected k = 9 to ensure that the three most similar countries were considered. Note that `KNN` requires a matrix rather than a dataframe:
+* For countries/fields with all three values missing (i.e. all three years), I implemented kNN imputation using the `KNN` function from the *fancyimpute* module. I decided this was more appropriate than a linear imputation approach since countries that share similar characteristics are more likely to have values for a missing field that closely resemble the actual missing values. I selected k = 9 to ensure that the three most similar countries were considered. Note that `KNN` requires a matrix rather than a dataframe:
 
 ```python
 from fancyimpute import KNN
